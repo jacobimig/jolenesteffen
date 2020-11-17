@@ -1,0 +1,308 @@
+/*
+Theme Name: Steffen Template
+Text Domain: JoleneSteffen
+Version: 1.0
+Description: Art gallery
+Tags: responsive, art
+Author: Jacob Imig
+*/
+/*GLOBAL*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Didact Gothic', sans-serif;
+    --red: #79182b;
+    word-wrap: break-word;
+}
+.active {
+    color: var(--red);
+}
+@keyframes homeBkgZoom {
+    0% {background-size: 100% 100%}
+    50% {background-size: 110% 110%}
+    100% {background-size: 100% 100%}
+}
+/*SINGLE PAGE STYLES*/
+.title {
+    margin: 1em 0 0 1em;
+}
+.img {
+    max-height: 60vh;
+    max-width: 75%;
+    float: left;
+    margin: 1em 1em 0 1em;
+}
+.txtWrapper {
+    margin-right: 2em;
+}
+/*NAV*/
+header {
+    background: rgba(0,0,0,0.3);
+}
+header h1 {
+    color: var(--red);
+    margin: 0.5em 0 0.5em 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+} 
+.hamburger {
+    position: absolute;
+    top: 3.5em;
+    right: 1em;
+    cursor: pointer;
+}
+.hamburger span {
+    cursor: pointer;
+    height: 3px;
+    width: 25px;
+    background: #fafafa;    
+    display: block;
+    margin-bottom: 5px;
+}
+.mainNav {
+    display: none;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.5em;
+    font-size: 1.25em;
+    text-shadow: 1px 1px rgba(0,0,0,0.7);
+    transition: color 0.3s ease;
+    display: block;
+}
+nav a:hover {
+    color: var(--red);
+    text-decoration: none;
+}
+.block {
+    display: block;
+}
+/*HOME PAGE*/
+.homeBody {
+    background-image: url("./assets/images/homeBkg.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top:0;
+    z-index: -1;
+    animation: homeBkgZoom 30s infinite;
+}
+/*GALLERY*/
+.galleryBody {
+    margin-top: 1em;
+}
+.galleryBody h2 {
+    text-align: center;
+    margin: 0.5em;
+    font-weight: bold;
+    font-size: 3em;
+}
+.galleryContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1em;
+    width: 80%;
+    margin: 0 auto 1em auto;
+}
+.galleryContainer a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.galleryContainer a:last-child {
+    margin-bottom: 3em;
+}
+.galleryCard {
+    border: 3px solid var(--red);
+    transition: border 0.25s linear;
+}
+.galleryImg {
+    max-height: 20vh;
+    max-width: 50%;
+    float: left;
+    margin: 1em 1em 0 1em;
+}
+.galleryCard h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    padding-left: 20px;
+    font-size: 1.75em;
+}
+.galleryCard h4 {
+    margin: 0.5em 0 0.5em 0;
+}
+.galleryCard p {
+    margin: 0 1em 1em 1em;
+}   
+  /*SHOW SCHEDULE PAGE*/
+  .scheduleBody h2 {
+      text-align: center;
+  }
+ .scheduleGrid {
+     display: grid;
+     grid-template-columns: 35% 1fr;
+     width: 60%;
+     margin: auto;
+     background: whitesmoke;
+ }
+ .scheduleGrid h4:first-child, .scheduleGrid h4:nth-child(2) {
+     text-decoration: underline;
+ }
+ .scheduleGrid h4, .scheduleGrid span {
+     margin-left: 1em;
+ }
+  /*ABOUT PAGE*/
+  .aboutBody {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 80%;
+    margin: auto;
+}
+.aboutImg {
+    background: var(--red);
+    display: flex;
+    justify-content: center;
+}
+.aboutImg img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+    margin-top: 1.5em;
+}
+.aboutText {
+    margin: 0 0 3em 2em;
+}
+.aboutText h2 {
+    margin-bottom: 0.5em;
+}
+.aboutText h4 {
+    margin-top: 0;
+}
+  /*MEDIA QUERRIES*/
+  @media only screen and (min-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mainNav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .hamburger {
+      display: none;
+    }
+    .galleryCard:hover {
+        border: 5px solid var(--red);
+    }
+  }
+  @media only screen and (max-width: 1400px) {
+      /*GALLERY PAGE*/
+      .galleryContainer {
+        width: 95%;
+    }
+    .galleryImg {
+        max-height: 20vh;
+        max-width: 40%;
+        margin: 1em 1em 0 1em;
+    }
+    /*SINGLE PAGE*/
+    .img {
+        max-height: 50vh;
+        max-width: 50%;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+      /*SHOW SCHEDULE PAGE */
+         .scheduleGrid {
+            width: 90%;
+        }
+    /*ABOUT PAGE*/
+    .aboutBody {
+        display: grid;
+        grid-template-columns: 100%;
+        width: 90%;
+        margin: auto;
+    }
+    .aboutImg {
+        background: transparent;
+    }
+    .aboutImg img {
+        max-width: 100%;
+        height: auto;
+        max-height: 30vh;
+        margin-top: 1.5em;
+    }
+       /*SINGLE PAGE*/
+       .singlePage {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .title {
+        text-align: center;
+        margin: 0.5em 0;
+    }
+    .img {
+        max-height: 40vh;
+        max-width: 100%;
+        margin: auto;
+        float: none;
+    }
+    .txtWrapper {
+        text-align: left;
+        margin-left: 2em;
+    }
+  }
+    @media only screen and (max-width: 768px) {
+        header h1 {
+            font-size: 1.25em;
+        }
+        nav a {
+            margin: 0.25em 1em;
+            display: block;
+            font-size: 1.25em;
+        }
+        /*GALLERY PAGE*/
+        .galleryBody h2 {
+            font-size: 2em;
+        }
+        .galleryContainer {
+            grid-template-columns: 100%;
+        }        
+        /*ABOUT PAGE*/
+        .aboutBody {
+            display: grid;
+            grid-template-columns: 100%;
+            width: 90%;
+            margin: auto;
+        }
+    }
+@media only screen and (max-width: 600px) {
+    nav {
+        font-size: 3vw;    
+    }
+    
+    /*SHOW SCHEDULE PAGE */
+         .scheduleGrid {
+            width: 95%;
+        }
+        @media only screen and (max-width: 450px) {
+            .hamburger {
+                position: absolute;
+                top: 4.5em;
+}
+            .hamburger span {
+                height: 3px;
+                width: 25px;
+                margin-bottom: 5px;
+            }
+        }
+  }
+
